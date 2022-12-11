@@ -21,17 +21,17 @@ module.exports = (ctx) => {
       throw new Error('Can\'t find uploader config')
     }
     // const url = userConfig.URL || DEFAULT_API
-    const group = userConfig.Group
+    const workspace = userConfig.workspace
     const project = userConfig.Project
     const token = userConfig.Token
     const srcPath = userConfig.Path
 
-    // const realImgUrlPre = url + '/' + group + '/' + project
-    // const realUrl = url + '/api/v4/projects/' + group + '%2F' + project + '/uploads'
-    const realImgUrlPre = `${DEFAULT_REPO_URL}/${group}/${project}/raw/master`
-    const realUrl = `${DEFAULT_API_URL}/repositories/${group}/${project}/src`
+    // const realImgUrlPre = url + '/' + workspace + '/' + project
+    // const realUrl = url + '/api/v4/projects/' + workspace + '%2F' + project + '/uploads'
+    const realImgUrlPre = `${DEFAULT_REPO_URL}/${workspace}/${project}/raw/master`
+    const realUrl = `${DEFAULT_API_URL}/repositories/${workspace}/${project}/src`
 
-    // const metaUrlPre = `${DEFAULT_API_URL}/repositories/${group}/${project}/src/master`
+    // const metaUrlPre = `${DEFAULT_API_URL}/repositories/${workspace}/${project}/src/master`
 
     try {
       let imgList = ctx.output
@@ -97,17 +97,18 @@ module.exports = (ctx) => {
         name: 'URL',
         type: 'input',
         default: userConfig.URL,
-        required: true,
-        message: 'https://bitbucket.org/',
+        required: false,
+        value: 'https://bitbucket.org',
+        message: 'https://bitbucket.org',
         alias: 'URL'
       },
       {
-        name: 'Group',
+        name: 'Workspace',
         type: 'input',
-        default: userConfig.Group,
+        default: userConfig.Workspace,
         required: true,
-        message: 'Group',
-        alias: 'Group'
+        message: 'Workspace',
+        alias: 'Workspace'
       },
       {
         name: 'Project',
