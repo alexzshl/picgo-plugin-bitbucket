@@ -16,4 +16,12 @@ npm i picgo-plugin-bitbucket
 - token: bitbucket project access token
 - path: relative path (eg: /upload/)
 
+
+generate project access token:
+
+![1670785529855](image/README/1670785529855.png?raw=true)
+
+![1670785647748](image/README/1670785647748.png?raw=true)
+
+
 ### Demo
