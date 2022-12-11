@@ -11,7 +11,7 @@ module.exports = (ctx) => {
   const register = () => {
     ctx.helper.uploader.register('bitbucket', {
       handle,
-      name: 'BitBucket图床',
+      name: 'BitBucket',
       config: config
     })
   }
