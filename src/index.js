@@ -21,7 +21,7 @@ module.exports = (ctx) => {
       throw new Error('Can\'t find uploader config')
     }
     // const url = userConfig.URL || DEFAULT_API
-    const workspace = userConfig.workspace
+    const workspace = userConfig.Workspace
     const project = userConfig.Project
     const token = userConfig.Token
     const srcPath = userConfig.Path
