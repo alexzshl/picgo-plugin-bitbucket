@@ -55,6 +55,7 @@ module.exports = (ctx) => {
           waitForDeleteFiles.push(targetPath)
         }
       }
+      ctx.log.warn('bitbucket will delete files: ', waitForDeleteFiles)
       let formData = new FormData()
       for (let j in waitForDeleteFiles) {
         const file = waitForDeleteFiles[j]
