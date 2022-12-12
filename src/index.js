@@ -43,7 +43,8 @@ module.exports = (ctx) => {
 
         const targetPath = srcPath + imgList[i].fileName
         const postConfig = postOptions(realUrl, token, targetPath, image, imgList[i].fileName)
-        let body = await ctx.Request.request(postConfig)
+        // let body = await ctx.Request.request(postConfig)
+        let body = await ctx.request(postConfig)
         delete imgList[i].base64Image
         delete imgList[i].buffer
         // body = JSON.parse(body)
@@ -96,9 +97,10 @@ module.exports = (ctx) => {
       {
         name: 'URL',
         type: 'input',
-        default: userConfig.URL,
+        // default: userConfig.URL,
+        default: 'https://bitbucket.org',
         required: false,
-        value: 'https://bitbucket.org',
+        // value: 'https://bitbucket.org',
         message: 'https://bitbucket.org',
         alias: 'URL'
       },
