@@ -4,19 +4,23 @@
 // logger.setDirectory('/Users/zhang/Work/WorkSpaces/WebWorkSpace/picgo-plugin-gitlab/logs')
 // let log = logger('plugin')
 
-const DEFAULT_API_URL = 'https://api.bitbucket.org/2.0'
-const DEFAULT_REPO_URL = 'https://bitbucket.org'
-
 module.exports = (ctx) => {
+  const PLUGIN_ID = 'bitbucket'
+  const PLUGIN_NAME = 'BitBucket'
+  const PLUGIN_CONFIG_ID = 'picBed.bitbucket'
+
+  const DEFAULT_API_URL = 'https://api.bitbucket.org/2.0'
+  const DEFAULT_REPO_URL = 'https://bitbucket.org'
+
   const register = () => {
-    ctx.helper.uploader.register('bitbucket', {
+    ctx.helper.uploader.register(PLUGIN_ID, {
       handle,
-      name: 'BitBucket',
+      name: PLUGIN_NAME,
       config: config
     })
   }
   const handle = async function (ctx) {
-    let userConfig = ctx.getConfig('picBed.bitbucket')
+    let userConfig = ctx.getConfig(PLUGIN_CONFIG_ID)
     if (!userConfig) {
       throw new Error('Can\'t find uploader config')
     }
@@ -89,7 +93,7 @@ module.exports = (ctx) => {
   }
 
   const config = ctx => {
-    let userConfig = ctx.getConfig('picBed.bitbucket')
+    let userConfig = ctx.getConfig(PLUGIN_CONFIG_ID)
     if (!userConfig) {
       userConfig = {}
     }
